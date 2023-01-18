@@ -31,3 +31,7 @@ Route::get('/smatex/contact',function(){
 Route::get('/smatex/gallery-single',function(){
     return view('smatex.gallery-single');
 });
+
+
+//admin section routes.
+Route::get('/admin',[AdminController::class,'create']);
