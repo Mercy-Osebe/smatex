@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,8 @@ Route::get('/smatex/gallery-single',function(){
 
 
 //admin section routes.
-Route::get('/admin',[AdminController::class,'create']);
+Route::get('/admin/create',[AdminController::class,'create']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

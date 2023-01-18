@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('template.app')
 @section('hero')
 
 <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade" data-aos-delay="1500">
