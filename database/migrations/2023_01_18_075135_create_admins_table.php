@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
-            $table->decimal('price',2);
+            $table->decimal('price',8,2);
             $table->longText('description');
             $table->tinyText('image_alt');
             $table->mediumText('image');

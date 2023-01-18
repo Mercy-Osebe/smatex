@@ -36,7 +36,9 @@ Route::get('/smatex/gallery-single',function(){
 
 
 //admin section routes.
+Route::resource('/admin',AdminController::class);
 Route::get('/admin/create',[AdminController::class,'create']);
+Route::post('/admin/create',[AdminController::class,'store']);
 
 Auth::routes();
 

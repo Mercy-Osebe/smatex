@@ -9,7 +9,7 @@
             <div class="card">
                 <h5 class="text-center mb-4">Enter the furniture details</h5>
 
-                <form class="form-card" enctype="multipart/form-data" method="post" action="../inventory/create">
+                <form class="form-card" enctype="multipart/form-data" method="post" action="{{url('admin/create')}}">
                     @csrf
                     <div class="row justify-content-center">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3" for="item_name">Furniture Name:<span class="text-danger"> *</span></label> <input type="text" id="item_name" name="item_name"> </div>
@@ -20,6 +20,7 @@
                     <div class="row justify-content-center">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3" for="description">Description:</label> <textarea name="description" id="" cols="30" rows="10"></textarea> </div>
                     </div>
+                    
                     <div class="row justify-content-center">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3" for="image_alt">Image Description:</label> <input type="text" name="image_alt" id="image_alt"> </div>
                     </div>

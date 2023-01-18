@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
@@ -36,7 +37,36 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('image')){
+            //get image
+            $img=$request->image;
+
+            //rename image
+
+            $reImg=time().'.'.$img->getClientOriginalExtension();
+            //save image to path
+
+            $dest=public_path('/images');
+
+            //save the renamed image
+            $img->move($dest,$reImg);
+            
+
+        }
+
         //
+        $item=new Admin();
+        $item->item_name=request('item_name');
+        $item->price=$request->price;
+        $item->description=$request->description;
+        $item->image_alt=$request->image_alt;
+        $item->image=$reImg;
+
+        $item->save();
+
+        return redirect('/admin/create');
+
+
     }
 
     /**
