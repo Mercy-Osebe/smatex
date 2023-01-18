@@ -15,6 +15,9 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $items=Admin::all();
+
+        return view('smatex.index',['items'=>$items]);
     }
 
     /**
@@ -64,7 +67,7 @@ class AdminController extends Controller
 
         $item->save();
 
-        return redirect('/admin/create');
+        return redirect('/smatex');
 
 
     }

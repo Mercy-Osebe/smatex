@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use LDAP\Result;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ Route::get('/smatex', function () {
 Route::get('/smatex/about',function(){
     return view('smatex.about');
 });
-Route::get('/smatex/gallery',function(){
-    return view('smatex.gallery');
+Route::get('/smatex/showAll',function(){
+    return view('smatex.showAll');
 });
 Route::get('/smatex/services',function(){
     return view('smatex.services');
@@ -39,6 +40,7 @@ Route::get('/smatex/gallery-single',function(){
 Route::resource('/admin',AdminController::class);
 Route::get('/admin/create',[AdminController::class,'create']);
 Route::post('/admin/create',[AdminController::class,'store']);
+Route::get('/smatex',[AdminController::class,'index']);
 
 Auth::routes();
 
