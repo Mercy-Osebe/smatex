@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('template.app')
 @section('hero')
 
 <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade" data-aos-delay="1500">
@@ -24,22 +24,24 @@
 <section id="gallery" class="gallery">
   <div class="container-fluid">
     <div class="row gy-4 justify-content-center">
+    @foreach($items as $item)
       <div class="col-xl-3 col-lg-4 col-md-6">
         <div class="gallery-item h-100">
           <div class="card text-center">
-            <img src="{{asset('img/gallery/gallery-1.jpg')}}" class="card-img-top" alt="image">
+            <img src="{{ URL::to('/') }}/images/{{$item->image}}" class="card-img-top" alt="image">
             <div class="card-body">
-              <h5 class="card-title">Image title</h5>
-              <p class="card-text" style="color:black">price</p>
-              <a href="#" class="btn btn-primary">View details</a>
+              <h5 class="card-title" style="color: black;">{{$item->item_name}}</h5>
+              <p class="card-text" style="color:black">{{$item->price}}</p>
+              <a href="{{url('/smatex',$item->id)}}" class="btn btn-primary">View details</a>
             </div>
           </div>
         </div>
       </div><!-- End Gallery Item -->
-
+      @endforeach
 
 
     </div>
+   
 
   </div>
 </section><!-- End Gallery Section -->

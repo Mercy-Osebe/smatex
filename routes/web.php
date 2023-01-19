@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use LDAP\Result;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +23,9 @@ Route::get('/smatex', function () {
 Route::get('/smatex/about',function(){
     return view('smatex.about');
 });
+Route::get('/smatex/showAll',function(){
+    return view('smatex.showAll');
+});
 Route::get('/smatex/gallery',function(){
     return view('smatex.gallery');
 });
@@ -31,7 +38,21 @@ Route::get('/smatex/contact',function(){
 Route::get('/smatex/gallery-single',function(){
     return view('smatex.gallery-single');
 });
+Route::get('/smatex/{id}',function($id){
+    $item=Admin::findorFail($id);
+    return view('smatex.show',['item'=>$item]);
+});
 
 
 //admin section routes.
-Route::get('/admin',[AdminController::class,'create']);
+Route::resource('/admin',AdminController::class);
+Route::get('/admin/create',[AdminController::class,'create']);
+Route::post('/admin/create',[AdminController::class,'store']);
+Route::get('/admin/update',[AdminController::class,'update']);
+Route::get('/admin/show',[AdminController::class,'show']);
+
+Route::get('/smatex',[AdminController::class,'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
