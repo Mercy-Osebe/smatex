@@ -27,8 +27,9 @@
                     <div class="row justify-content-center">
                         <div class="form-group col-sm-6 flex-column d-flex"><label for="image" class="form-label">Upload Image:<span class="text-danger"> *</span></label><input class="form-control" type="file" id="image" name="image" multiple></div>
                     </div>
-                    <div class="row justify-content-center mt-3">
-                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" name=submit>Add Item</button> </div>
+                    <div class="row justify-content-around mt-3">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" name=submit>Update Item</button> </div>
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" name=submit>Delete Item</button> </div>
                     </div>
                 </form>
             </div>
