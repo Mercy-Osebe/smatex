@@ -17,7 +17,7 @@ class AdminController extends Controller
         //
         $items=Admin::all();
 
-        return view('smatex.index',['items'=>$items]);
+        return view('admin.index',['items'=>$items]);
     }
 
     /**

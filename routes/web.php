@@ -18,7 +18,8 @@ use LDAP\Result;
 */
 
 Route::get('/smatex', function () {
-    return view('smatex.index');
+    $items=Admin::all();
+    return view('smatex.index',['items'=>$items]);
 });
 Route::get('/smatex/about',function(){
     return view('smatex.about');
@@ -46,12 +47,12 @@ Route::get('/smatex/{id}',function($id){
 
 //admin section routes.
 Route::resource('/admin',AdminController::class);
+Route::get('/admin',[AdminController::class,'index']);
 Route::get('/admin/create',[AdminController::class,'create']);
 Route::post('/admin/create',[AdminController::class,'store']);
 Route::get('/admin/update',[AdminController::class,'update']);
 Route::get('/admin/show',[AdminController::class,'show']);
 
-Route::get('/smatex',[AdminController::class,'index']);
 
 Auth::routes();
 
