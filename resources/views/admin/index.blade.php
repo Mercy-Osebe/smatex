@@ -32,7 +32,7 @@
             <div class="card-body">
               <h5 class="card-title" style="color: black;">{{$item->item_name}}</h5>
               <p class="card-text" style="color:black">{{$item->price}}</p>
-              <a href="{{url('/smatex',$item->id)}}" class="btn btn-primary">View details</a>
+              <a href="{{url('/admin',$item->id)}}" class="btn btn-primary">View details</a>
             </div>
           </div>
         </div>

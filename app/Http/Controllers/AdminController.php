@@ -81,6 +81,8 @@ class AdminController extends Controller
     public function show($id)
     {
         //
+        $item=Admin::findOrFail($id);
+        return view('admin.show',['item'=>$item]);
     }
 
     /**
@@ -115,5 +117,9 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $item=Admin::findOrFail($id);
+        $item->delete();
+        return redirect('/admin');
+
     }
 }
