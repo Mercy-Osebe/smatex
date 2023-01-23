@@ -17,7 +17,7 @@ class AdminController extends Controller
         //
         $items=Admin::all();
 
-        return view('smatex.index',['items'=>$items]);
+        return view('admin.index',['items'=>$items]);
     }
 
     /**
@@ -67,7 +67,7 @@ class AdminController extends Controller
 
         $item->save();
 
-        return redirect('/smatex');
+        return redirect('/admin');
 
 
     }
@@ -81,6 +81,9 @@ class AdminController extends Controller
     public function show($id)
     {
         //
+        $item=Admin::findOrFail($id);
+
+        return view('admin.show',['item'=>$item]);
     }
 
     /**
@@ -92,6 +95,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+        $entry=Admin::findOrFail($id);
+        return view('admin.update',['entry'=>$entry]);
     }
 
     /**
@@ -104,6 +109,15 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $entry=Admin::findOrFail($id);
+        $entry->item_name=$request->item_name;
+        $entry->price=$request->price;
+        $entry->description=$request->description;
+        $entry->image_alt=$request->image_alt;
+        $entry->image=$request->image;
+        $entry->update();
+        return redirect('/admin/{id}')->with('msg','record updated successfully');
+
     }
 
     /**
@@ -115,5 +129,9 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $item=Admin::findOrFail($id);
+        $item->delete();
+
+        return redirect('/admin');
     }
 }

@@ -46,12 +46,15 @@ Route::get('/smatex/{id}',function($id){
 
 //admin section routes.
 Route::resource('/admin',AdminController::class);
+Route::get('/admin',[AdminController::class,'index']);
 Route::get('/admin/create',[AdminController::class,'create']);
 Route::post('/admin/create',[AdminController::class,'store']);
-Route::get('/admin/update',[AdminController::class,'update']);
-Route::get('/admin/show',[AdminController::class,'show']);
+Route::put('/admin/update',[AdminController::class,'update']);
+Route::get('/admin/{id}',[AdminController::class,'show']);
+Route::delete('/admin/{id}',[AdminController::class,'destroy']);
 
-Route::get('/smatex',[AdminController::class,'index']);
+
+// Route::get('/smatex',[AdminController::class,'index']);
 
 Auth::routes();
 
