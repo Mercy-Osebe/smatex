@@ -9,8 +9,6 @@
             <div class="card">
                 <h5 class="text-center mb-4">Enter the furniture details</h5>
                 {{$item->id}}
-
-
                 <div class="row justify-content-center">
                     <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3" for="item_name">Furniture Name:<span class="text-danger"> *</span></label> {{$item->item_name}}</div>
                 </div>
@@ -33,7 +31,16 @@
                         <div class="form-group col-sm-6">
 
 
-                            <button type="submit" class="btn-block btn-primary" name=submit><a href="{{url('admin/update')}}">Update Item</a></button>
+                            <!-- Route::get('/post/{post}/comment/{comment}', function (Post $post, Comment $comment) {
+                            //
+                            })->name('comment.show');
+
+                            echo route('comment.show', ['post' => 1, 'comment' => 3]);
+
+                            // http://example.com/post/1/comment/3 -->
+
+
+                            <button type="submit" class="btn-block btn-primary" name=submit><a href="{{route('admin.edit',['id'=>$item->id])}}">Update Item</a></button>
 
                         </div>
 

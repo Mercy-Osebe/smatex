@@ -18,19 +18,19 @@
                         <div class="mb-3" style="color:black">
                             <label for="item_name" class="form-label">Item Name:</label>
                             <div>
-                            <h1>{{$item->item_name}}</h1>
+                                <h1>{{$item->item_name}}</h1>
                             </div>
                         </div>
                         <div class="mb-3" style="color:black">
                             <label for="price" class="form-label">Price:</label>
                             <div>
-                            <h3>{{$item->price}}</h3>
+                                <h3>{{$item->price}}</h3>
                             </div>
                         </div>
                         <div class="mb-3" style="color:black">
                             <label for="description" class="form-label">Description:</label>
                             <div>
-                            {{$item->description}}
+                                {{$item->description}}
                             </div>
                         </div>
                         <div class="row justify-content-around mt-3">

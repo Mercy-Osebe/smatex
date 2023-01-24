@@ -96,7 +96,7 @@ class AdminController extends Controller
     {
         //
         $entry=Admin::findOrFail($id);
-        return view('admin.update',['entry'=>$entry]);
+        return view('admin.edit',['entry'=>$entry]);
     }
 
     /**
@@ -116,7 +116,7 @@ class AdminController extends Controller
         $entry->image_alt=$request->image_alt;
         $entry->image=$request->image;
         $entry->update();
-        return redirect('/admin/{id}')->with('msg','record updated successfully');
+        return redirect('/admin')->with('update_msg','record updated successfully');
 
     }
 

@@ -20,6 +20,16 @@
 
 
 
+@if(Session::has('update_msg'))
+<p class="text-success">
+    {{session('update_msg')}}
+</p>
+@elseif(Session::has('okay'))
+<p class="text-warning">
+    {{session('okay')}}
+</p>
+@endif
+
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="gallery">
   <div class="container-fluid">

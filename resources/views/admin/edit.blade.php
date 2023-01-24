@@ -4,10 +4,11 @@
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3 style="padding: 200px;" >Welcome to the Admin section</h3>
+            <h3 >Welcome to the Admin section</h3>
             <p class="blue-text">Here you can add the items to your website<br>In this section you can be able to edit entrries and even delete them.</p>
             <div class="card">
                 <h5 class="text-center mb-4">Enter the furniture details</h5>
+                
                 <!-- entry -->
 
                 <form class="form-card" enctype="multipart/form-data" method="post" action="{{url('admin',$entry->id)}}">

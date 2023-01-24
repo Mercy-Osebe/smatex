@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price',8,2);
             $table->longText('description');
             $table->tinyText('image_alt');
-            $table->mediumText('image');
+            $table->mediumText('image')->nullable();
             $table->timestamps();
         });
     }
